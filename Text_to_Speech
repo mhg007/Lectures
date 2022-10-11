@@ -1,0 +1,22 @@
+listView.adapter = adapter
+listView.setOnItemClickListner(
+  AdapterView.onItemClickListner {
+  adapterView,view,i,l ->
+    toast.makeText(this,array[i].name,Toast.LENGTH);
+  }
+)
+
+// Text to Speech
+android has lib TextToSpeech
+var isTTSReady = false;
+val tts ; TextToSpeech = TextToSpeech(this,TextToSpeech.OnInitListener {
+  isTTSReady = true
+})
+
+listView.adapter = adapter
+listView.setOnItemClickListner(
+  AdapterView.onItemClickListner {
+  adapterView,view,i,l ->
+    tts.speak(array[i],TextToSpeech.QUEUE_ADD,null,"1234")
+  }
+)
